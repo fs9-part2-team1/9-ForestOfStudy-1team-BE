@@ -1,15 +1,66 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum BackgroundType {
+  COLOR_GREEN
+  COLOR_ORANGE
+  COLOR_BLUE
+  COLOR_PINK
+  IMAGE_1
+  IMAGE_2
+  IMAGE_3
+  IMAGE_4
+}
+
+model Study {
+  id          String         @id @default(uuid())
+  nickname    String
+  title       String
+  description String
+  background  BackgroundType @default(COLOR_GREEN)
+  password    String
+  points      Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  habits    Habit[]
+  reactions Reaction[]
+}
+
+model Habit {
+  id        String   @id @default(uuid())
+  studyId   String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  study Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+
+  habitRecord HabitRecord[]
+}
+
+model HabitRecord {
+  id         String   @id @default(uuid())
+  habitId    String
+  recordDate DateTime @default(now())
+
+  habit Habit @relation(fields: [habitId], references: [id], onDelete: Cascade)
+
+  @@unique([habitId, recordDate])
+}
+
+model Reaction {
+  id      String @id @default(uuid())
+  studyId String
+  emoji   String
+  count   Int    @default(0)
+
+  study Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
 }
