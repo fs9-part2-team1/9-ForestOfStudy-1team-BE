@@ -1,8 +1,8 @@
 import { isDevelopment } from '../config/config.js';
-import HttpException from '../errors/httpException.js'; // ✅ 수정 완료
+import HttpException from '../errors/httpException.js'; 
 
 // 공통 에러 핸들러
-export const errorHandler = (error, req, res, _next) => {
+export const errorHandler = (error, req, res, next) => {
   console.error('error', error);
 
   if (error instanceof HttpException) {

@@ -4,7 +4,7 @@ import HttpException from '../errors/httpException.js';
 
 const router = express.Router();
 
-// ✅ 습관 기록 조회 (GET /api/habit/:habitId/record)
+// 습관 기록 조회 (GET /api/habit/:habitId/record)
 router.get('/:habitId/record', async (req, res, next) => {
   try {
     const { habitId } = req.params;
@@ -17,7 +17,7 @@ router.get('/:habitId/record', async (req, res, next) => {
   }
 });
 
-// ✅ 습관 체크 (POST /api/habit/:habitId/record)
+//  습관 체크 (POST /api/habit/:habitId/record)
 router.post('/:habitId/record', async (req, res, next) => {
   try {
     const { habitId } = req.params;
@@ -30,7 +30,7 @@ router.post('/:habitId/record', async (req, res, next) => {
   }
 });
 
-// ✅ 습관 기록 삭제 (DELETE /api/habit/:habitId/record/:id)
+//  습관 기록 삭제 (DELETE /api/habit/:habitId/record/:id)
 router.delete('/:habitId/record/:id', async (req, res, next) => {
   try {
     const { id } = req.params;

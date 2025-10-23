@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// ✅ 2️⃣ 전체 스터디 목록 조회 (GET /api/study?orderBy&search=&page=)
+//  전체 스터디 목록 조회 (GET /api/study?orderBy&search=&page=)
 router.get('/', async (req, res, next) => {
   try {
     const { orderBy = 'createdAt', search = '', page = 1, limit = 10 } = req.query;
@@ -45,7 +45,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// ✅ 3️⃣ 특정 스터디 상세 조회 (GET /api/study/:id)
+//특정 스터디 상세 조회 (GET /api/study/:id)
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -57,7 +57,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-// ✅ 4️⃣ 스터디 정보 수정 (PATCH /api/study/:id)
+//  스터디 정보 수정 (PATCH /api/study/:id)
 router.patch('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -75,7 +75,7 @@ router.patch('/:id', async (req, res, next) => {
   }
 });
 
-// ✅ 5️⃣ 스터디 삭제 (DELETE /api/study/:id)
+// 스터디 삭제 (DELETE /api/study/:id)
 router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;

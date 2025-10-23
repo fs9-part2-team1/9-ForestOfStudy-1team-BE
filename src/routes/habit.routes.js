@@ -4,7 +4,7 @@ import HttpException from '../errors/httpException.js';
 
 const router = express.Router({ mergeParams: true }); // studyId 받기 위해 필요
 
-// ✅ 특정 스터디의 모든 습관 조회 (GET /api/study/:studyId/habit)
+// 특정 스터디의 모든 습관 조회 (GET /api/study/:studyId/habit)
 router.get('/:studyId/habit', async (req, res, next) => {
   try {
     const { studyId } = req.params;
@@ -15,7 +15,7 @@ router.get('/:studyId/habit', async (req, res, next) => {
   }
 });
 
-// ✅ 습관 추가 (POST /api/study/:studyId/habit)
+//  습관 추가 (POST /api/study/:studyId/habit)
 router.post('/:studyId/habit', async (req, res, next) => {
   try {
     const { studyId } = req.params;
@@ -32,7 +32,7 @@ router.post('/:studyId/habit', async (req, res, next) => {
   }
 });
 
-// ✅ 습관 수정 (PATCH /api/habit/:habitId)
+//  습관 수정 (PATCH /api/habit/:habitId)
 router.patch('/habit/:habitId', async (req, res, next) => {
   try {
     const { habitId } = req.params;
@@ -44,7 +44,7 @@ router.patch('/habit/:habitId', async (req, res, next) => {
   }
 });
 
-// ✅ 습관 삭제 (DELETE /api/habit/:habitId)
+// 습관 삭제 (DELETE /api/habit/:habitId)
 router.delete('/habit/:habitId', async (req, res, next) => {
   try {
     const { habitId } = req.params;
