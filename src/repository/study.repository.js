@@ -17,7 +17,11 @@ export async function getStudyById(id) {
   return prisma.study.findUnique({
     where: { id },
     include: {
-      habits: true,
+      habits: {
+        include: {
+          habitRecord: true,
+        },
+      },
       reactions: true,
     },
   });
@@ -40,5 +44,3 @@ export async function updateStudy(id, data) {
 export async function deleteStudy(id) {
   return prisma.study.delete({ where: { id } });
 }
-
-
