@@ -1,0 +1,9 @@
+//잘못된 요청(400)
+
+import HttpException  from './httpException.js';
+
+export class BadRequestException extends HttpException {
+  constructor(message = '잘못된 요청입니다.') {
+    super(400, message);
+  }
+}
