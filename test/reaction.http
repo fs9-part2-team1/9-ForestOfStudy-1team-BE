@@ -1,0 +1,18 @@
+### 반응 추가 (새 반응 or 기존 count +1)
+POST http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39/reaction
+Content-Type: application/json
+
+{
+  "emoji": "🔥"
+}
+
+### 특정 스터디의 모든 반응 조회
+GET http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39/reaction
+
+### 반응 감소 (새 반응 or 기존 count +1)
+DELETE http://localhost:3000/study/8db58d5a-a5e8-4239-a63e-390032daff39/reaction
+Content-Type: application/json
+
+{
+  "emoji": "🔥"
+}

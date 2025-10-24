@@ -1,0 +1,30 @@
+### 스터디 생성
+POST http://localhost:3000/api/study
+Content-Type: application/json
+
+{
+  "nickname": "유저1",
+  "title": "JS 공부 스터디",
+  "description": "자바스크립트 심화 학습",
+  "background": "COLOR_BLUE",
+  "password": "1234"
+}
+
+### 전체 스터디 목록 조회
+GET http://localhost:3000/api/study
+
+### 특정 스터디 조회
+GET http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39
+
+### 스터디 수정
+PATCH http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39
+Content-Type: application/json
+
+{
+  "title": "수정된 스터디명",
+  "description": "설명 수정됨",
+  "background": "IMAGE_4"
+}
+
+### 스터디 삭제
+DELETE http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39
