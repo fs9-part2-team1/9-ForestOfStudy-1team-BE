@@ -1,24 +1,24 @@
 ### 습관 추가
-POST http://localhost:3000/api/study/329231e8-df1f-4fde-a6bd-ffda40a0c989/habit
+POST http://localhost:3000/api/study/347d9645-c856-41b8-825f-f15c20641738/habit
 Content-Type: application/json
 
 {
-  "name": "JS 스터디 계획 세우기",
-  "isChecked": false
+  "name": "JS 스터디 계획 세우기"
 }
 
+
 ### 특정 스터디의 모든 습관 조회
-GET http://localhost:3000/api/study/329231e8-df1f-4fde-a6bd-ffda40a0c989/habit
+GET http://localhost:3000/api/study/347d9645-c856-41b8-825f-f15c20641738/habit
 
 
 ### 습관 수정
-PATCH http://localhost:3000/api/habit/{habitId}
+PATCH http://localhost:3000/api/habit/76c3696d-68fb-4104-98bd-a6a5bbc1aa50
 Content-Type: application/json
 
 {
-  "name": "모던 자바스크립트 스터디",
-  "isChecked": true
+  "name": "모던 자바스크립트 스터디"
+ 
 }
 
 ### 습관 삭제
-DELETE http://localhost:3000/api/habit/{habitId}
+DELETE http://localhost:3000/api/habit/76c3696d-68fb-4104-98bd-a6a5bbc1aa50

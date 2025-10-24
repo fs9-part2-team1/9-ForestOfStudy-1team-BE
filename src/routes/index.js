@@ -18,9 +18,10 @@ router.use(requestTimer);
 
 //  라우터 등록
 router.use('/api/study', studyRouter); // /api/study
-router.use('/api/study/:studyId/habit', habitRouter); // /api/study/:studyId/habit
-router.use('/api/habit/:habitId/record', habitRecordRouter); // /api/habit/:habitId/record
-router.use('/api/study/:studyId/reaction', reactionRouter); // /api/study/:studyId/reaction
+router.use('/api/study', habitRouter); // /api/study/:studyId/habit
+router.use('/api/habit',habitRouter);
+router.use('/api/habit', habitRecordRouter); // /api/habit/:habitId/record
+router.use('/api/study', reactionRouter); // /api/study/:studyId/reaction
 
 // 에러 핸들러
 router.use(errorHandler);
