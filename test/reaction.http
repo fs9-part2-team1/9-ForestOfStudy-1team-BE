@@ -1,5 +1,5 @@
 ### 반응 추가 (새 반응 or 기존 count +1)
-POST http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39/reaction
+POST http://localhost:3000/api/study/559ad647-6ec8-4476-8635-1a00de61ea87/reaction
 Content-Type: application/json
 
 {
@@ -7,10 +7,10 @@ Content-Type: application/json
 }
 
 ### 특정 스터디의 모든 반응 조회
-GET http://localhost:3000/api/study/8db58d5a-a5e8-4239-a63e-390032daff39/reaction
+GET http://localhost:3000/api/study/559ad647-6ec8-4476-8635-1a00de61ea87/reaction
 
 ### 반응 감소 (새 반응 or 기존 count +1)
-DELETE http://localhost:3000/study/8db58d5a-a5e8-4239-a63e-390032daff39/reaction
+DELETE http://localhost:3000/study/559ad647-6ec8-4476-8635-1a00de61ea87/reaction
 Content-Type: application/json
 
 {

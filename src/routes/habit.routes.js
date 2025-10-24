@@ -33,9 +33,9 @@ router.post('/:studyId/habit', async (req, res, next) => {
 });
 
 //  습관 수정 (PATCH /api/habit/:habitId)
-router.patch('/habit/:habitId', async (req, res, next) => {
+router.patch('/:habitId', async (req, res, next) => {
   try {
-    const { habitId } = req.params;
+    const { habitId } = req.params; 
     const { name } = req.body;
     const updatedHabit = await habitRepo.updateHabit(habitId, name);
     res.json({ message: '습관 수정 완료', updatedHabit });
@@ -45,7 +45,7 @@ router.patch('/habit/:habitId', async (req, res, next) => {
 });
 
 // 습관 삭제 (DELETE /api/habit/:habitId)
-router.delete('/habit/:habitId', async (req, res, next) => {
+router.delete('/:habitId', async (req, res, next) => {
   try {
     const { habitId } = req.params;
     await habitRepo.deleteHabit(habitId);
