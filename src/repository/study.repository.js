@@ -27,9 +27,15 @@ export async function getStudyById(id) {
   });
 }
 
-//  스터디 생성
+//  스터디 생성 : 모든 필드를 보내지 않음, 기본값 지정해두기
 export async function createStudy(data) {
-  return prisma.study.create({ data });
+  return prisma.study.create({
+    data: {
+      ...data,
+      points: data.points ?? 0,
+      background: data.background ?? 'COLOR_GREEN',
+    },
+  });
 }
 
 // 스터디 수정
