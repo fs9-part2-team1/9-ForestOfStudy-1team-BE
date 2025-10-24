@@ -3,7 +3,6 @@ import * as reactionRepo from '../repository/reaction.repository.js';
 import HttpException from '../errors/httpException.js';
 
 const router = express.Router({ mergeParams: true });
-
 // 특정 스터디의 모든 반응 조회 (GET /api/study/:studyId/reaction)
 router.get('/:studyId/reaction', async (req, res, next) => {
   try {

@@ -1,10 +1,12 @@
 import express from 'express';
-import * as studyRepo from '../repository/study.repository.js';
-import HttpException from '../errors/httpException.js';
+import * as studyRepo from '../../repository/study.repository.js';
+import HttpException from '../../errors/httpException.js';
+import habitRouter from './habit/habit.routes.js';
 
 const router = express.Router();
-console.log('✅ study.routes.js 실행됨');
 
+
+// 새 스터디 생성 (POST /api/study)
 router.post('/', async (req, res, next) => {
   try {
     const { nickname, title, description, background, password } = req.body;
@@ -27,25 +29,23 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-//  전체 스터디 목록 조회 (GET /api/study?orderBy&search=&page=)
+// 전체 스터디 목록 조회 (GET /api/study)
 router.get('/', async (req, res, next) => {
   try {
     const { orderBy = 'createdAt', search = '', page = 1, limit = 10 } = req.query;
-
     const studies = await studyRepo.getStudies({
       orderBy,
       search,
       page: Number(page),
       limit: Number(limit),
     });
-
     res.json(studies);
   } catch (error) {
     next(error);
   }
 });
 
-//특정 스터디 상세 조회 (GET /api/study/:id)
+// 특정 스터디 조회 (GET /api/study/:id)
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -57,18 +57,12 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-//  스터디 정보 수정 (PATCH /api/study/:id)
+// 스터디 정보 수정 (PATCH /api/study/:id)
 router.patch('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const { title, description, background } = req.body;
-
-    const updatedStudy = await studyRepo.updateStudy(id, {
-      title,
-      description,
-      background,
-    });
-
+    const updatedStudy = await studyRepo.updateStudy(id, { title, description, background });
     res.json({ message: '스터디 정보가 수정되었습니다.', updatedStudy });
   } catch (error) {
     next(error);
@@ -85,5 +79,8 @@ router.delete('/:id', async (req, res, next) => {
     next(error);
   }
 });
+
+//  /api/study/:studyId/habit 라우터 연결
+router.use('/:studyId/habit', habitRouter);
 
 export default router;

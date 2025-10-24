@@ -1,9 +1,8 @@
 import express from 'express';
-import * as habitRecordRepo from '../repository/habit-record.repository.js';
-import HttpException from '../errors/httpException.js';
+import * as habitRecordRepo from '../../../repository/habit-record.repository.js';
+import HttpException from '../../../errors/httpException.js';
 
 const router = express.Router();
-
 // 습관 기록 조회 (GET /api/habit/:habitId/record)
 router.get('/:habitId/record', async (req, res, next) => {
   try {

@@ -1,29 +1,13 @@
 import express from 'express';
-import studyRouter from './study.routes.js';
-import habitRouter from './habit.routes.js';
-import habitRecordRouter from './habit-record.routes.js';
+import studyRouter from './study/study.routes.js';
 import reactionRouter from './reaction.routes.js';
-
-import { errorHandler } from '../middlewares/errorHandler.js';
-import { logger } from '../middlewares/logger.js';
-import { requestTimer } from '../middlewares/requestTimer.js';
-import { corsMiddleware } from '../middlewares/cors.js';
 
 const router = express.Router();
 
-// 공통 미들웨어
-router.use(corsMiddleware);
-router.use(logger);
-router.use(requestTimer);
+//  스터디 관련 라우터 (하위에 habit, record까지 다 포함됨)
+router.use('/api/study', studyRouter);
 
-//  라우터 등록
-router.use('/api/study', studyRouter); // /api/study
-router.use('/api/study', habitRouter); // /api/study/:studyId/habit
-router.use('/api/habit',habitRouter);
-router.use('/api/habit', habitRecordRouter); // /api/habit/:habitId/record
-router.use('/api/study', reactionRouter); // /api/study/:studyId/reaction
-
-// 에러 핸들러
-router.use(errorHandler);
+// 스터디 반응 관련 라우터
+router.use('/api/study/:studyId/reaction', reactionRouter);
 
 export default router;
