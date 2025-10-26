@@ -4,7 +4,6 @@ const prisma = new PrismaClient();
 
 /* Reaction 생성하기 */
 async function createReaction(data) {
-  console.log(data);
   return await prisma.reaction.create({ data });
 }
 
