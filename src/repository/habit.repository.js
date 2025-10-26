@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 export async function getHabits(studyId) {
   return prisma.habit.findMany({
     where: { studyId },
+      include: { habitRecord: true },
     orderBy: { createdAt: 'asc' },
   });
 }
