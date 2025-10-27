@@ -4,13 +4,14 @@
 
 ### 🧑‍💻 팀원 구성
 
-| 👑 이유리 | 박지은 | 박성훈 | 김진영 | 김유신 |
-|-----------|-------|-------|-------|-------|
-| ![유리](https://github.com/yoorrll.png?s=40) | ![지은](https://github.com/jieun318.png?s=40) | ![성훈](https://github.com/something-like.png?s=40) | ![진영](https://github.com/TheFlowerWay.png?s=40) | ![유신](https://github.com/powerima.png?s=40) |
-|[GitHub](https://github.com/yoorrll)|[GitHub](https://github.com/jieun318)|[GitHub](https://github.com/something-like)|[GitHub](https://github.com/TheFlowerWay)|[GitHub](https://github.com/powerima)
+| 👑 이유리 | 박지은 | 김유신 |
+|-----------|-------|-------|
+| ![유리](https://github.com/yoorrll.png?s=40) | ![지은](https://github.com/jieun318.png?s=40) | ![유신](https://github.com/powerima.png?s=40) |
+|[GitHub](https://github.com/yoorrll)|[GitHub](https://github.com/jieun318)|[GitHub](https://github.com/powerima)
 
 
 ## 💡 프로젝트 소개
+
 > **프로젝트명** : 공부의 숲 🌳
 
 - **프로젝트 주제** : 개인 공부 관리 및 커뮤니티 서비스
@@ -29,22 +30,68 @@
 ## 📝 팀원별 구현 기능 상세
 
 > #### 이유리 (팀장)
-- 내용
+- **메인** : 프론트 / 백
+- **스터디 만들기** : 프론트 수정 / 백
+- **스터디 상세** : 프론트 / 백
+- **오늘의 습관** : 프론트 수정 / 백
+- **오늘의 집중** : 프론트 수정 / 백
+- **백엔드** : DB 모델링, 스키마, 시딩, CRUD
 
 > #### 박지은
-- 내용
-
-> #### 박성훈
-- 내용
-
-> #### 김진영
-- 내용
+- **오늘의 습관** : 프론트 / 백
+- **오늘의 집중** : 프론트 수정
+- **백엔드** : CRUD, 라우트, 미들웨어, 에러 핸들러
 
 > #### 김유신
-- 내용
+- **스터디 만들기** : 프론트
 
 ## 📂 파일 구조
 
+```
+fs9-part2-team1-be
+├─ .prettierignore
+├─ .prettierrc
+├─ eslint.config.js
+├─ package.json
+├─ pnpm-lock.yaml
+├─ prisma
+│  ├─ migrations
+│  │  ├─ 20251018111956_init
+│  │  │  └─ migration.sql
+│  │  └─ migration_lock.toml
+│  └─ schema.prisma
+├─ README.md
+├─ scripts
+│  └─ seed.js
+└─ src
+   ├─ config
+   │  └─ config.js
+   ├─ errors
+   │  ├─ badRequestException.js
+   │  ├─ forbiddenException.js
+   │  ├─ httpException.js
+   │  ├─ notFoundExption.js
+   │  └─ unauthorizedException.js
+   ├─ generated
+   ├─ middlewares
+   │  ├─ cors.js
+   │  ├─ errorHandler.js
+   │  ├─ logger.js
+   │  ├─ requestTimer.js
+   │  └─ validateHabit.js
+   ├─ repository
+   │  ├─ habit-record.repository.js
+   │  ├─ habit.repository.js
+   │  ├─ reaction.repository.js
+   │  └─ study.repository.js
+   ├─ routes
+   │  ├─ index.js
+   │  ├─ reaction.routes.js
+   │  └─ study
+   │     ├─ habit
+   │     │  ├─ habit-record.routes.js
+   │     │  └─ habit.routes.js
+   │     └─ study.routes.js
+   └─ server.js
 
-
-## 🔗 배포 주소
+```
