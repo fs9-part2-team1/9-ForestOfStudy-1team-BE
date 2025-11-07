@@ -13,11 +13,11 @@ app.use(requestTimer);
 app.use(express.json());
 
 //  라우터 등록
-app.use('/', router);
+app.get('/', (req, res) => res.send('Server is running!'));
 
-//  에러 핸들러는 항상 마지막에
 app.use(errorHandler);
 
-app.listen(3000, () => {
-  console.log('🚀 Server running on http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
